@@ -25,8 +25,8 @@
     </div>
 
     <ul class="sidenav" id="mobile-demo">
-        <li><a href="/#land-industry">Земли промышленности</a></li>
-        <li><a href="/#land-gardening">Земли для садоводства</a></li>
-        <li><a href="/#land-agricultural">Земли сельскохозяйственного назначения</a></li>
+        <li><a class="sidenav-close" href="/#land-industry">Земли промышленности</a></li>
+        <li><a class="sidenav-close" href="/#land-gardening">Земли для садоводства</a></li>
+        <li><a class="sidenav-close" href="/#land-agricultural">Земли сельскохозяйственного назначения</a></li>
     </ul>
 </header>
