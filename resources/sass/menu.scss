@@ -1,0 +1,56 @@
+//Меню для десктопа
+nav {
+    @extend .green, .darken-4;
+
+    ul {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+
+        &.more-one-menu {
+            justify-content: left;
+        }
+
+        li {
+            float: none;
+            margin-right: 1rem;
+            text-transform: uppercase;
+            overflow: hidden;
+            border: 1px solid #518864;
+            border-radius: 0 0 20px 20px;
+
+            a.active {
+                background-color: rgba(0, 0, 0, 0.1);
+            }
+        }
+    }
+
+    .nav-content {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        .contacts {
+            display: flex;
+
+            .contacts-phone, .contacts-e-mail {
+                display: flex;
+                align-items: center;
+            }
+
+            i {
+                height: 2rem;
+                line-height: 2rem;
+            }
+        }
+    }
+}
+
+// Меню мобилки
+.sidenav li > a {
+    height: auto;
+
+    &.active {
+        background-color: rgba(0, 0, 0, 0.1);
+    }
+}

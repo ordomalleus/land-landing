@@ -1,0 +1,50 @@
+.app-land-agricultural {
+    min-height: 100vh;
+    padding-bottom: 2rem;
+
+    .land-title {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 15rem;
+        color: #fff;
+        font-size: 36px;
+        clip-path: polygon(0% 0%, 100% 0, 100% 100%, 0 50%);
+        background-color: #488e50;
+
+        @media #{$small-and-down} {
+            font-size: 26px;
+        }
+
+        .text {
+            position: relative;
+            top: -2rem;
+
+            @media #{$small-and-down} {
+                top: -3rem;
+            }
+        }
+    }
+
+    .agricultural-card {
+        background: rgb(25,118,210);
+        //background: linear-gradient(90deg, rgba(25,118,210,70%) 0%, rgba(28,137,245,70%) 50%, rgba(25,118,210,70%) 100%);
+        background: linear-gradient(90deg, rgba(183, 206, 228, 0.7) 0%, rgba(167, 210, 253, 0.7) 50%, rgba(84, 170, 255, 0.7) 100%);
+    }
+
+    .demo-1 {
+        position: absolute;
+        width: 100%;
+        height: 30rem;
+    }
+
+    .land-visim .image-circle{
+        background: url("../images/agricultural/visim-circle.jpg") 50% 50% no-repeat;
+        background-size: cover;
+    }
+
+    .land-lipovo .image-circle{
+        background: url("../images/agricultural/lipovo-circle.jpg") 50% 50% no-repeat;
+        background-size: cover;
+    }
+}

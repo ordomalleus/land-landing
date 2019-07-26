@@ -1,0 +1,52 @@
+.app-title {
+    min-height: 100vh;
+    margin-top: -$navbar-height;
+    padding-top: 10%;
+    //background: url("../images/title-font.jpg") 50% 50% no-repeat;
+    background-size: cover;
+    color: white;
+
+    @media #{$small-and-down} {
+        margin-top: -$navbar-height-mobile;
+    }
+
+    //.section-gradient {
+    //    position: absolute;
+    //    top: 0;
+    //    left: 0;
+    //    width: 100%;
+    //    height: 100%;
+    //    background: #000;
+    //    opacity: .3;
+    //    //opacity: 0;
+    //}
+
+    .row {
+        position: relative;
+        z-index: 1;
+    }
+
+    .title {
+        font-size: 5rem;
+        font-weight: bold;
+        text-transform: uppercase;
+        line-height: 6rem;
+    }
+
+    .text {
+        font-size: 1.5rem;
+        line-height: 2rem;
+
+        a {
+            margin-left: 1rem;
+            color: #ddd;
+            font-size: 1.7rem;
+            font-style: italic;
+        }
+    }
+
+    .contacts {
+        display: flex;
+        align-items: center;
+    }
+}

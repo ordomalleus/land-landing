@@ -1,0 +1,56 @@
+.app-land-gardening {
+    min-height: 100vh;
+    padding-bottom: 2rem;
+    //background: #0f9d58;
+
+    .land-title {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 15rem;
+        color: #fff;
+        font-size: 36px;
+        clip-path: polygon(0% 0%, 100% 0, 100% 50%, 0 100%);
+        background-color: #488e50;
+
+        @media #{$small-and-down} {
+            font-size: 26px;
+        }
+
+        .text {
+            position: relative;
+            top: -2rem;
+
+            @media #{$small-and-down} {
+                top: -3rem;
+            }
+        }
+    }
+
+    .gardening-card {
+        //background-color: #c19b6b;
+        background: rgb(193,155,107);
+        background: linear-gradient(90deg, rgba(193,155,107,70%) 0%, rgba(218,173,116,70%) 50%, rgba(193,155,107,70%) 100%);
+    }
+
+    .demo-1 {
+        position: absolute;
+        width: 100%;
+        height: 30rem;
+    }
+
+    .land-11639 .image-circle{
+        background: url("../images/gardening/11639-circle.jpg") 50% 50% no-repeat;
+        background-size: cover;
+    }
+
+    .land-44361 .image-circle{
+        background: url("../images/gardening/44361-circle.jpg") 50% 50% no-repeat;
+        background-size: cover;
+    }
+
+    .land-mohovo .image-circle{
+        background: url("../images/gardening/mohovo-circle.jpg") 50% 50% no-repeat;
+        background-size: cover;
+    }
+}

@@ -1,0 +1,81 @@
+html {
+    font-family: 'Roboto';
+    height: 100vh;
+}
+
+body {
+    overflow-x: hidden;
+    position: relative;
+    //height: 100vh;
+}
+
+section {
+    //position: relative;
+    box-sizing: border-box;
+}
+
+.card {
+    border-radius: 3rem;
+}
+
+.global-font {
+    position: fixed;
+    height: 100vh;
+    width: 100vw;
+    top: 0;
+    left: 0;
+    background: url("../images/test.jpg") 50% 50% no-repeat;
+    z-index: -1;
+}
+
+.section-gradient {
+    position: fixed;
+    height: 100vh;
+    width: 100vw;
+    top: 0;
+    left: 0;
+    background: #000;
+    opacity: .3;
+    z-index: -1;
+}
+
+/**
+Ракета для перемотки на вверх
+ */
+#to-top-button {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    width: 60px;
+    height: 60px;
+    transition: all 1000ms;
+    background-color: #333;
+    border-radius: 15px;
+    color: #fff;
+    opacity: 0;
+    cursor: pointer;
+    z-index: 999999;
+}
+
+//======================================================Скролл========================================================
+::-webkit-scrollbar {
+    width: 10px;
+    height: 1rem;
+}
+
+::-webkit-scrollbar-track {
+    box-shadow: #19761f;
+    border-radius: 1rem;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 1rem;
+    box-shadow: #19761f;
+    background-color: #19761f;
+
+    &:hover {
+        background-color: #19761f;
+    }
+}
+
+//====================================================================================================================

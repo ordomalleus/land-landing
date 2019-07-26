@@ -1,0 +1,132 @@
+//Блок для показа информации на главной странице о каждом объекте
+.app-land-circle {
+    color: #000;
+    margin-bottom: 2rem;
+
+    // круглешки
+    .image-circle-container {
+        height: 20rem;
+        width: 20rem;
+        margin: 0 auto;
+        border-radius: 50%;
+
+        @media #{$medium-and-down} {
+            width: 7rem;
+            height: 7rem;
+        }
+
+        @media #{$small-and-down} {
+            width: 15rem;
+            height: 15rem;
+        }
+
+        @media only screen and (min-width : 993px) and (max-width : 1440px) {
+            width: 10rem;
+            height: 10rem;
+        }
+
+        &:hover {
+            .image-circle {
+                transform: rotateX(180deg);
+                background: #333!important;
+
+                .image-circle-price {
+                    opacity: 1;
+                }
+            }
+        }
+
+        .image-circle {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 20rem;
+            width: 20rem;
+            transform-style: preserve-3d;
+            transition: .3s linear;
+            border-radius: 50%;
+            color: #fff;
+            cursor: pointer;
+
+            @media #{$medium-and-down} {
+                width: 7rem;
+                height: 7rem;
+            }
+
+            @media #{$small-and-down} {
+                width: 15rem;
+                height: 15rem;
+            }
+
+            @media only screen and (min-width : 993px) and (max-width : 1440px) {
+                width: 10rem;
+                height: 10rem;
+            }
+
+            .image-circle-price {
+                display: flex;
+                align-items: center;
+                transform: rotateX(-180deg);
+                opacity: 0;
+                transition: .6s linear .2s;
+            }
+        }
+    }
+
+    .text {
+        padding-top: 2rem;
+
+        .name {
+            margin-bottom: 1rem;
+
+            .name-title {
+                font-style: italic;
+            }
+        }
+
+        .category {
+            margin-bottom: 1rem;
+
+            .category-title {
+                font-style: italic;
+            }
+        }
+
+        .building {
+            margin-bottom: 1rem;
+
+            .building-title {
+                font-style: italic;
+            }
+        }
+
+        .price {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .more {
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+
+        .building-icons {
+            display: flex;
+            margin-top: 2rem;
+            align-items: center;
+
+            .building-icons-title {
+                margin-right: 5rem;
+                font-style: italic;
+            }
+
+            .building-icons-text {
+                i {
+                    cursor: pointer;
+                    margin-right: 2rem;
+                }
+            }
+        }
+    }
+}

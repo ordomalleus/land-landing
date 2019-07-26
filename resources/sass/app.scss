@@ -1,0 +1,24 @@
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+// Variables
+//@import 'variables';
+
+// Materialize
+@import "~materialize-css/sass/materialize";
+
+// Animate.css
+@import "~animate.css";
+
+// Lightgallery.js
+@import "~lightgallery.js/src/sass/lightgallery";
+
+// All scss
+@import "global";
+@import "title";
+@import "menu";
+@import "land-industry";
+@import "land-gardening";
+@import "land-agricultural";
+@import "one-land";
+@import "more-one";
