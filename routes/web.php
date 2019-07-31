@@ -15,6 +15,9 @@ Route::get('/', function () {
     return view('general');
 });
 
+//=====================FORM===========================
+Route::post('/form', 'FormController@formSubmit');
+
 //===================INDUSTRY=========================
 Route::get('more-industry-1135', function () {
     return view('/industry/more-industry-1135');

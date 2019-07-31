@@ -1,3 +1,5 @@
+import IMask from 'imask';
+
 // Подготовка документа
 document.addEventListener('DOMContentLoaded', function () {
     // Для скроллинга
@@ -16,6 +18,14 @@ document.addEventListener('DOMContentLoaded', function () {
     const tooltipped = document.querySelectorAll('.tooltipped');
     var tooltippedInit = M.Tooltip.init(tooltipped, {});
 
+    // Feature Discovery
+    var featureDiscovery = document.getElementById('form-section');
+    var featureDiscoveryInit = M.TapTarget.init(featureDiscovery, {});
+    var formMenu = document.getElementById('form-menu');
+    formMenu.addEventListener('click', function () {
+        featureDiscoveryInit.open();
+    });
+
     // Gallery
     lightGallery(document.getElementById('lightgallery'));
 
@@ -24,6 +34,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Показывать ли "ракету"
     showToTop();
+
+    // Управление формой обратной связи
+    formInit()
 });
 
 // Вешаем событие на скрол
@@ -52,4 +65,46 @@ function showToTop() {
             toTopButtonElement.style.opacity = '0';
         }
     }
+}
+
+/**
+ * Форма обратной связи
+ */
+function formInit() {
+
+    // Маска на телефоный номер
+    var element = document.getElementById('form-input-phone');
+    var mask = IMask(element, {
+        mask: '+7(000)000-00-00',
+    });
+    mask.value = "+7(";
+
+    // При вводе значения проверяем валидность формы и дизайблим кнопку отправки
+    var form = document.getElementById('form-input');
+    form.addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        // Получаем значения
+        var name = document.getElementById('form-input-name').value;
+        var phone = document.getElementById('form-input-phone').value;
+
+        // Отправляем на сервак
+        fetch('form', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRF-TOKEN': laravelToken,
+            },
+            body: JSON.stringify({name, phone})
+        }).then(e => {
+            // Преобразуем ответ в json
+            return e.json();
+        }).then(e => {
+            // Дизайблим кнопку отправки
+            var button = document.getElementById('form-submit');
+            button.classList.add('disabled');
+            // Кинем сообщение
+            M.toast({html: 'Сообщение отправленно. В ближайшее время с вами свяжуться.', displayLength: 8000})
+        });
+    })
 }

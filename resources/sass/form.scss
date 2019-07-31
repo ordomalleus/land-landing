@@ -1,0 +1,19 @@
+.fixed-form-menu {
+    position: fixed;
+    bottom: 7rem;
+    right: 2.2rem;
+    z-index: 1000;
+}
+
+#form-section.tap-target {
+    background-color: #806eee;
+    border-radius: unset;
+
+    h5, p {
+        color: #fff;
+    }
+
+    input {
+        color: #fff;
+    }
+}
