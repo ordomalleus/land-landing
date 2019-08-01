@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', function () {
     showToTop();
 
     // Управление формой обратной связи
-    formInit()
+    formInit(featureDiscoveryInit)
 });
 
 // Вешаем событие на скрол
@@ -70,7 +70,7 @@ function showToTop() {
 /**
  * Форма обратной связи
  */
-function formInit() {
+function formInit(featureDiscoveryInit) {
 
     // Маска на телефоный номер
     var element = document.getElementById('form-input-phone');
@@ -79,7 +79,7 @@ function formInit() {
     });
     mask.value = "+7(";
 
-    // При вводе значения проверяем валидность формы и дизайблим кнопку отправки
+    // Сабмит формы
     var form = document.getElementById('form-input');
     form.addEventListener('submit', function (e) {
         e.preventDefault();
@@ -87,6 +87,10 @@ function formInit() {
         // Получаем значения
         var name = document.getElementById('form-input-name').value;
         var phone = document.getElementById('form-input-phone').value;
+        var text = document.getElementById('form-input-text').value;
+
+        // Закроем форму
+        featureDiscoveryInit.close();
 
         // Отправляем на сервак
         fetch('form', {
@@ -95,7 +99,7 @@ function formInit() {
                 'Content-Type': 'application/json',
                 'X-CSRF-TOKEN': laravelToken,
             },
-            body: JSON.stringify({name, phone})
+            body: JSON.stringify({name, phone, text})
         }).then(e => {
             // Преобразуем ответ в json
             return e.json();
@@ -104,7 +108,7 @@ function formInit() {
             var button = document.getElementById('form-submit');
             button.classList.add('disabled');
             // Кинем сообщение
-            M.toast({html: 'Сообщение отправленно. В ближайшее время с вами свяжуться.', displayLength: 8000})
+            M.toast({html: 'Сообщение отправленно. В ближайшее время с вами свяжутся.', displayLength: 8000})
         });
     })
 }

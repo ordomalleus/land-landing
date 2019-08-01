@@ -9,7 +9,7 @@
     <div class="row">
         <div style="height: 50px"></div>
         <div style="color: #fff">
-            <h1 style="text-align: center">Новый обратный звонок</h1>
+            <h1 style="text-align: center" style="color: #fff">Новый обратный звонок</h1>
         </div>
         <div style="text-align: center">
             <div style="height: 100px"></div>
@@ -17,6 +17,7 @@
         <div style="height: 50px"></div>
         <div style="color: #fff;text-align: center">
             <span>Ф.И.О.: {{$mail['name']}}</span> <span>Телефон: {{$mail['phone']}}</span>
+            <p>Сообщение: {{$mail['text']}}</p>
         </div>
     </div>
 </div>

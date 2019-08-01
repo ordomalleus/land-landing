@@ -12,12 +12,12 @@
             </div>
             <div class="input-field">
                 <input placeholder="Номер телефона" id="form-input-phone" type="tel" class="validate" required>
-                <label for="first_name">Номер телефона</label>
+                <label for="form-input-phone">Номер телефона</label>
             </div>
-{{--            <div class="input-field">--}}
-{{--                <input placeholder="e-mail" id="form-input-mail" type="email" class="validate">--}}
-{{--                <label for="first_name">e-mail</label>--}}
-{{--            </div>--}}
+            <div class="input-field">
+                <textarea placeholder="Сообщение" id="form-input-text" class="materialize-textarea validate"></textarea>
+                <label for="form-input-text">Сообщение</label>
+            </div>
             <div>
                 <button id="form-submit" class="btn waves-effect waves-light" type="submit" name="action">Отправить
                     <i class="material-icons right">send</i>
