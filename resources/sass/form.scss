@@ -1,8 +1,21 @@
 .fixed-form-menu {
     position: fixed;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
     bottom: 7rem;
     right: 2.2rem;
     z-index: 1000;
+
+    .fixed-form-menu-title {
+        color: #fff;
+        margin-bottom: 0;
+        font-size: 2rem;
+
+        @media #{$small-and-down} {
+            display: none;
+        }
+    }
 }
 
 #form-section.tap-target {

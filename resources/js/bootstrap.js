@@ -22,9 +22,11 @@ document.addEventListener('DOMContentLoaded', function () {
     var featureDiscovery = document.getElementById('form-section');
     var featureDiscoveryInit = M.TapTarget.init(featureDiscovery, {});
     var formMenu = document.getElementById('form-menu');
-    formMenu.addEventListener('click', function () {
-        featureDiscoveryInit.open();
-    });
+    if (formMenu) {
+        formMenu.addEventListener('click', function () {
+            featureDiscoveryInit.open();
+        });
+    }
 
     // Gallery
     lightGallery(document.getElementById('lightgallery'));
@@ -71,44 +73,46 @@ function showToTop() {
  * Форма обратной связи
  */
 function formInit(featureDiscoveryInit) {
-
-    // Маска на телефоный номер
-    var element = document.getElementById('form-input-phone');
-    var mask = IMask(element, {
-        mask: '+7(000)000-00-00',
-    });
-    mask.value = "+7(";
-
-    // Сабмит формы
-    var form = document.getElementById('form-input');
-    form.addEventListener('submit', function (e) {
-        e.preventDefault();
-
-        // Получаем значения
-        var name = document.getElementById('form-input-name').value;
-        var phone = document.getElementById('form-input-phone').value;
-        var text = document.getElementById('form-input-text').value;
-
-        // Закроем форму
-        featureDiscoveryInit.close();
-
-        // Отправляем на сервак
-        fetch('form', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'X-CSRF-TOKEN': laravelToken,
-            },
-            body: JSON.stringify({name, phone, text})
-        }).then(e => {
-            // Преобразуем ответ в json
-            return e.json();
-        }).then(e => {
-            // Дизайблим кнопку отправки
-            var button = document.getElementById('form-submit');
-            button.classList.add('disabled');
-            // Кинем сообщение
-            M.toast({html: 'Сообщение отправленно. В ближайшее время с вами свяжутся.', displayLength: 8000})
+    // Если есть форма
+    if (featureDiscoveryInit) {
+        // Маска на телефоный номер
+        var element = document.getElementById('form-input-phone');
+        var mask = IMask(element, {
+            mask: '+7(000)000-00-00',
         });
-    })
+        mask.value = "+7(";
+
+        // Сабмит формы
+        var form = document.getElementById('form-input');
+        form.addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            // Получаем значения
+            var name = document.getElementById('form-input-name').value;
+            var phone = document.getElementById('form-input-phone').value;
+            var text = document.getElementById('form-input-text').value;
+
+            // Закроем форму
+            featureDiscoveryInit.close();
+
+            // Отправляем на сервак
+            fetch('form', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRF-TOKEN': laravelToken,
+                },
+                body: JSON.stringify({name, phone, text})
+            }).then(e => {
+                // Преобразуем ответ в json
+                return e.json();
+            }).then(e => {
+                // Дизайблим кнопку отправки
+                var button = document.getElementById('form-submit');
+                button.classList.add('disabled');
+                // Кинем сообщение
+                M.toast({html: 'Сообщение отправленно. В ближайшее время с вами свяжутся.', displayLength: 8000})
+            });
+        })
+    }
 }
