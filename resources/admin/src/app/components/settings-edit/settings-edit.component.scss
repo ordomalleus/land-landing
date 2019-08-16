@@ -1,0 +1,33 @@
+:host {
+  display: flex;
+  height: 100%;
+  padding: 2rem;
+  font-size: 1.5rem;
+  box-sizing: border-box;
+}
+
+.settings-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+}
+
+.settings-add-form {
+  display: flex;
+  flex-direction: column;
+}
+
+mat-card {
+  overflow: auto;
+  flex: auto;
+}
+
+.color-picker-container {
+  margin-bottom: 2rem;
+
+  .color-span {
+    width: 10rem;
+    height: 10rem;
+  }
+}

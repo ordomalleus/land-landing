@@ -1,0 +1,53 @@
+:host {
+}
+
+mat-sidenav {
+  width: 40rem;
+}
+
+.logo-nav-container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.app-sidenav-content {
+  overflow: hidden;
+}
+
+.mat-divider.mat-divider-vertical {
+  height: 100%;
+  margin: 1.5rem;
+}
+
+.app-router-container {
+  position: relative;
+  height: calc(100% - 6.4rem);
+}
+
+mat-toolbar {
+  height: 6.4rem;
+
+  h1 {
+    font-size: 1.6rem;
+  }
+}
+
+.logout {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  font-size: 1.6rem;
+  margin-left: auto;
+}
+
+.mat-drawer-container {
+  background: white;
+}
+
+// Меню
+a.mat-list-item {
+  &.activate {
+    background-color: #33333342;
+  }
+}

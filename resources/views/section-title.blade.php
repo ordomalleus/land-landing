@@ -3,7 +3,7 @@
     <div class="row">
         <div class="col s12 m8 offset-m2">
             <div class="section">
-                <h1 class="title wow bounceInDown">Своя<br>земля</h1>
+                <h1 class="title wow bounceInDown">{!! $globalSettings->title !!}</h1>
             </div>
         </div>
     </div>
@@ -11,13 +11,7 @@
     <div class="row">
         <div class="col s12 m8 offset-m2">
             <div class="section text">
-                <p class="wow bounceInLeft">
-                    Хотите построить завод?<br>
-                    Волнует вопрос, где хранить пароход?<br>
-                    Хочется дачу и свой огород?<br>
-                    У нас есть решение.<br>
-                    Более 100 вариантов земельных участков.
-                </p>
+                <p class="wow bounceInLeft">{!! $globalSettings->title_second !!}</p>
             </div>
         </div>
     </div>

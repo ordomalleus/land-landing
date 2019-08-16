@@ -1,11 +1,11 @@
-<div class="row app-land-circle {{$class}} wow {{$wow}}">
+<div class="row app-land-circle wow {{$wow}}">
     <div class="col s12 m8 offset-m2">
-        <div class="card {{$card}}">
+        <div class="card @switch ($land_type_id) @case(1) industry-card @break @case(2) gardening-card @break @case(3) agricultural-card @break @endswitch">
             <div class="card-content">
                 <div class="row">
                     <div class="col s12 m4">
                         <div class="image-circle-container">
-                            <div class="image-circle">
+                            <div class="image-circle" style="background: url('/land-images/{{$img_name}}') 50% 50% no-repeat;background-size: cover;">
                                 <div class="image-circle-price">
                                     <i class="material-icons small">local_atm</i>
                                     <span>&nbsp;</span>

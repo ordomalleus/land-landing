@@ -41,3 +41,6 @@ mix.js('resources/js/app.js', 'public/js')
     })
     // Копируем без вебпака wowjs
     .copy(['node_modules/wowjs/dist/wow.js'], 'public/js');
+
+// mix.react('resources/js/admin/app.jsx', 'public/js/admin.js')
+//     .sass('resources/sass/admin/index.scss', 'public/css/admin.css');

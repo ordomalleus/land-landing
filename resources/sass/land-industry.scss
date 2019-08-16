@@ -11,7 +11,6 @@
         color: #fff;
         font-size: 36px;
         clip-path: polygon(0% 0%, 100% 0, 100% 100%, 0 50%);
-        background-color: #488e50;
 
         @media #{$small-and-down} {
             font-size: 26px;
@@ -29,7 +28,6 @@
 
     .industry-card {
         background: rgb(255,255,255, .7);
-        //background: linear-gradient(90deg, rgba(214,169,95,70%) 0%, rgba(237,188,107,70%) 50%, rgba(214,169,95,70%) 100%);
     }
 
     .demo-1 {
@@ -40,35 +38,5 @@
 
     .land-block {
         position: relative;
-    }
-
-    .land-1135 .image-circle{
-        background: url("../images/industry/1135-circle.jpg") 50% 50% no-repeat;
-        background-size: cover;
-    }
-
-    .land-1786 .image-circle{
-        background: url("../images/industry/1786-circle.jpg") 50% 50% no-repeat;
-        background-size: cover;
-    }
-
-    .land-2144 .image-circle{
-        background: url("../images/industry/2144-circle.jpg") 50% 50% no-repeat;
-        background-size: cover;
-    }
-
-    .land-2150 .image-circle{
-        background: url("../images/industry/2150-circle.jpg") 50% 50% no-repeat;
-        background-size: cover;
-    }
-
-    .land-2339 .image-circle{
-        background: url("../images/industry/2339-circle.jpg") 50% 50% no-repeat;
-        background-size: cover;
-    }
-
-    .land-6 .image-circle{
-        background: url("../images/industry/6-circle.jpg") 50% 50% no-repeat;
-        background-size: cover;
     }
 }

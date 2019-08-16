@@ -21,7 +21,7 @@
 
 @section('font')
 
-    <div class="global-font"></div>
+    <div class="global-font" style="background: url({{'global-settings/'.$globalSettings->global_image}}) 50% 50% no-repeat;"></div>
 
     <div class="section-gradient"></div>
 

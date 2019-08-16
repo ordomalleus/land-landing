@@ -11,55 +11,75 @@
 |
 */
 
-Route::get('/', function () {
-    return view('general');
+//======================ADMIN===========================
+
+// TODO: для прод режима
+//Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function (){
+// TODO: для дев режима
+Route::group(['prefix' => 'admin'], function (){
+    // Стартовая страница с ангуляром
+    Route::get('/', 'Admin\AdminController@index');
+
+    // Получить csrf
+    Route::get('/csrf', function() {
+        return response()->json(Session::token());
+    });
+
+    // Получить глобальные настройки
+    Route::get('/settings/get-all', 'Admin\AdminController@settingsGetAll');
+
+    // Изменить глобальные настройки
+    Route::post('/settings/edit', 'Admin\AdminController@settingsEdit');
+
+    // Получить все земли
+    Route::get('/land/get-all', 'Admin\AdminController@landGetAll');
+
+    // Получить одну землю для редактирования
+    Route::get('/land/get-one/{id}', 'Admin\AdminController@landGetOne');
+
+    // Добавить новую землю
+    Route::post('/land/add', 'Admin\AdminController@addLand');
+
+    // Удалим землю
+    Route::delete('/land/delete/{id}', 'Admin\AdminController@deleteLand');
+
+    // Удалим картинку у земли
+    Route::delete('/land/delete-image/{id}', 'Admin\AdminController@deleteLandImage');
+
+    // Обновление земли
+    Route::post('/land/edit/{id}', 'Admin\AdminController@editLand');
 });
+
+
+Route::get('/home', 'HomeController@index')->name('home');
+// Authentication Routes...
+Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
+Route::post('login', 'Auth\LoginController@login');
+Route::post('logout', 'Auth\LoginController@logout')->name('logout');
+
+// Registration Routes...
+Route::get('register', 'Auth\RegisterController@showRegistrationForm')->name('register');
+Route::post('register', 'Auth\RegisterController@register');
+
+//
+//// Password Reset Routes...
+//Route::get('password/reset', 'Auth\ForgotPasswordController@showLinkRequestForm')->name('password.request');
+//Route::post('password/email', 'Auth\ForgotPasswordController@sendResetLinkEmail')->name('password.email');
+//Route::get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm')->name('password.reset');
+//Route::post('password/reset', 'Auth\ResetPasswordController@reset')->name('password.update');
+//
+//// Email Verification Routes...
+//Route::get('email/verify', 'Auth\VerificationController@show')->name('verification.notice');
+//Route::get('email/verify/{id}', 'Auth\VerificationController@verify')->name('verification.verify');
+//Route::get('email/resend', 'Auth\VerificationController@resend')->name('verification.resend');
+
+//====================Основной сайт====================
+// Главная страница
+Route::get('/', 'GeneralController@index');
+// Конкретная земля
+Route::get('/{id}', 'GeneralController@oneLand');
 
 //=====================FORM===========================
 Route::post('/form', 'FormController@formSubmit');
 
-//===================INDUSTRY=========================
-Route::get('more-industry-1135', function () {
-    return view('/industry/more-industry-1135');
-});
-
-Route::get('more-industry-1786', function () {
-    return view('/industry/more-industry-1786');
-});
-
-Route::get('more-industry-2144', function () {
-    return view('/industry/more-industry-2144');
-});
-
-Route::get('more-industry-2150', function () {
-    return view('/industry/more-industry-2150');
-});
-
-Route::get('more-industry-2339', function () {
-    return view('/industry/more-industry-2339');
-});
-
-Route::get('more-industry-6', function () {
-    return view('/industry/more-industry-6');
-});
-//==================GARDENING=========================
-Route::get('more-gardening-11639', function () {
-    return view('/gardening/more-gardening-11639');
-});
-
-Route::get('more-gardening-44361', function () {
-    return view('/gardening/more-gardening-44361');
-});
-
-Route::get('more-gardening-mohovo', function () {
-    return view('/gardening/more-gardening-mohovo');
-});
-//===================agricultural=======================
-Route::get('more-agricultural-visim', function () {
-    return view('/agricultural/more-agricultural-visim');
-});
-
-Route::get('more-agricultural-lipovo', function () {
-    return view('/agricultural/more-agricultural-lipovo');
-});
-//======================================================
+//====================================================

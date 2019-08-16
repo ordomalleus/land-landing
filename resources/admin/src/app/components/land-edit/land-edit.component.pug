@@ -1,0 +1,17 @@
+.land-edit-container
+  h3 Редактирование земли
+  mat-card
+
+    .land-all-list
+      .land-list
+        mat-list
+          mat-list-item(*ngFor="let land of lands")
+            .list-item-container
+              .image
+                .image-land([ngStyle]="{'background-image': 'url(' + href + land.img_name +')'}")
+              .name
+                span {{land.name}}
+              .control
+                mat-icon((click)="deleteLand(land.id)", matTooltip="удалить") delete_sweep
+                span &nbsp;
+                mat-icon((click)="editLand(land.id)", matTooltip="редактировать") more_horiz

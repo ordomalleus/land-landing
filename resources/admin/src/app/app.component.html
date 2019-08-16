@@ -1,0 +1,53 @@
+<mat-sidenav-container class="app-font" fullscreen>
+
+  <mat-sidenav #sidenav>
+    <div class="logo-nav-container">
+      <mat-nav-list>
+        <a mat-list-item [routerLink]="'/'" [routerLinkActive]="'activate'" [routerLinkActiveOptions]="{exact:true}">
+          <mat-icon matListIcon>add</mat-icon>
+          <span>Создание земли</span>
+        </a>
+        <a mat-list-item [routerLink]="'/edit-land'" [routerLinkActive]="'activate'" [routerLinkActiveOptions]="{exact:true}">
+          <mat-icon matListIcon>border_color</mat-icon>
+          <span>Редактирование земель</span>
+        </a>
+        <a mat-list-item [routerLink]="'/edit-settings'" [routerLinkActive]="'activate'" [routerLinkActiveOptions]="{exact:true}">
+          <mat-icon matListIcon>build</mat-icon>
+          <span>Настройки отображения</span>
+        </a>
+      </mat-nav-list>
+    </div>
+  </mat-sidenav>
+
+  <mat-sidenav-content class="app-sidenav-content">
+
+    <mat-toolbar color="primary">
+      <button mat-icon-button (click)="sidenav.toggle()">
+        <mat-icon matTooltip="Меню">
+          menu
+        </mat-icon>
+      </button>
+
+      <mat-divider [vertical]="true"></mat-divider>
+
+      <span>Админка</span>
+
+      <mat-divider [vertical]="true"></mat-divider>
+      <div class="logout">
+<!--        <button (click)="logout($event)"-->
+<!--                mat-icon-button>-->
+<!--          <mat-icon matTooltip="Выход">-->
+<!--            directions_run-->
+<!--          </mat-icon>-->
+<!--        </button>-->
+      </div>
+    </mat-toolbar>
+
+    <div class="app-router-container">
+
+      <router-outlet></router-outlet>
+    </div>
+
+  </mat-sidenav-content>
+
+</mat-sidenav-container>

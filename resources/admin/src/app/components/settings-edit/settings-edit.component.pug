@@ -1,0 +1,25 @@
+.settings-container
+  h3 Изменить глобальные настройки
+  mat-card
+    .settings-add-form([formGroup]="form", [appConnectForm]="globalSettings")
+
+      mat-form-field
+        textarea(matInput,
+          placeholder="Главная страница первый блок",
+          formControlName="title")
+
+      mat-form-field
+        textarea(matInput,
+          placeholder="Главная страница второй блок",
+          formControlName="title_second")
+
+      .color-picker-container
+        p Цвет блоков земли
+        .color-span([colorPicker]="color", (colorPickerChange)="serColor($event)", [style.background]="color")
+
+      mat-form-field
+        ngx-mat-file-input(formControlName="global_image", placeholder="Картинка на глвынй фон сата")
+        mat-icon(matSuffix) folder
+
+      button([disabled]="form.invalid", mat-raised-button, color="primary", (click)="confirm()") Сохранить
+

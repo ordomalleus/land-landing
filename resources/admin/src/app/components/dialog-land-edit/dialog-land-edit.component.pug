@@ -1,0 +1,73 @@
+.land-add-container
+  h3 Редактирование земли
+  mat-card
+    h4 Картинки для слайдера
+    .land-images
+      .land-images-one(*ngFor="let img of land?.land_images")
+        .image([ngStyle]="{'background-image': 'url(' + href + img.img_name +')'}")
+        .delete
+          mat-icon((click)="deleteImage(img.id)", matTooltip="удалить") delete_sweep
+
+    .land-add-form([formGroup]="form", [appConnectForm]="land")
+      mat-form-field
+        input(matInput,
+          placeholder="Наименование",
+          formControlName="name")
+
+      mat-form-field
+        mat-select(placeholder="Эффект появления", formControlName="wow")
+          mat-option() Не выбрано
+          mat-option(*ngFor="let value of wowEffect",
+            [value]="value.id") {{value.title}}
+
+      mat-form-field
+        mat-select(placeholder="Тип земли", formControlName="land_type_id")
+          mat-option(*ngFor="let value of landType",
+            [value]="value.id") {{value.title}}
+
+      mat-form-field
+        input(matInput,
+          placeholder="Ктегория земли",
+          formControlName="category")
+
+      mat-form-field
+        input(matInput,
+          placeholder="Постройки земли",
+          formControlName="building")
+
+      mat-form-field
+        input(matInput,
+          placeholder="Цена за сотку",
+          formControlName="price")
+
+      mat-form-field
+        textarea(matInput,
+          matTextareaAutosize,
+          matAutosizeMinRows="5",
+          placeholder="Иконки",
+          formControlName="building_icons")
+
+      mat-form-field
+        textarea(matInput,
+          matTextareaAutosize,
+          matAutosizeMinRows="5",
+          placeholder="Информация для подробного",
+          formControlName="info")
+
+      mat-form-field
+        textarea(matInput,
+          matTextareaAutosize,
+          matAutosizeMinRows="5",
+          placeholder="HTML для подробного",
+          formControlName="table")
+
+      mat-form-field
+        ngx-mat-file-input(formControlName="img_name", placeholder="Основная картинка")
+        mat-icon(matSuffix) folder
+
+      mat-form-field
+        ngx-mat-file-input(formControlName="img_sliders", placeholder="Картинки для слайдера", multiple)
+        mat-icon(matSuffix) folder
+
+    button(mat-raised-button, color="primary", (click)="confirm()") Сохранить
+
