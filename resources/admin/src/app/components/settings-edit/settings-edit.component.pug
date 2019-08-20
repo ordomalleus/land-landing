@@ -5,12 +5,12 @@
 
       mat-form-field
         textarea(matInput,
-          placeholder="Главная страница первый блок",
+          placeholder="Главная страница, первый блок",
           formControlName="title")
 
       mat-form-field
         textarea(matInput,
-          placeholder="Главная страница второй блок",
+          placeholder="Главная страница, второй блок",
           formControlName="title_second")
 
       .color-picker-container
@@ -18,7 +18,7 @@
         .color-span([colorPicker]="color", (colorPickerChange)="serColor($event)", [style.background]="color")
 
       mat-form-field
-        ngx-mat-file-input(formControlName="global_image", placeholder="Картинка на глвынй фон сата")
+        ngx-mat-file-input(formControlName="global_image", placeholder="Картинка на главный фон сайта")
         mat-icon(matSuffix) folder
 
       button([disabled]="form.invalid", mat-raised-button, color="primary", (click)="confirm()") Сохранить

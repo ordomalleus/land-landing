@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { MatDialog, MatSnackBar } from '@angular/material';
 import { map } from 'rxjs/operators';
@@ -15,7 +14,7 @@ import { DialogLandEditComponent } from '../dialog-land-edit/dialog-land-edit.co
   styleUrls: ['./land-edit.component.scss']
 })
 export class LandEditComponent implements OnInit {
-  href = environment.production ? 'http://59land59.ru/' : 'http://localhost:8000/land-images/';
+  href = environment.production ? `${window.location.origin}/land-images/` : 'http://localhost:8000/land-images/';
   // Все земли
   lands: any[] = [];
   // Токен

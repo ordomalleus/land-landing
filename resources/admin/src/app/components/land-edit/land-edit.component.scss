@@ -12,6 +12,10 @@
   flex-direction: column;
 }
 
+mat-card {
+  overflow: auto;
+}
+
 .land-list {
 
   .mat-list-base .mat-list-item {

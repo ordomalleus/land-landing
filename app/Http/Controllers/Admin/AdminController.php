@@ -20,6 +20,8 @@ class AdminController extends Controller
     public function index()
     {
         return view('app-admin');
+
+//        return view()->file('admin-app/index.html');
     }
 
     /**
@@ -47,7 +49,8 @@ class AdminController extends Controller
             // Удалим старую картинку
             try {
                 unlink('global-settings/' . $settings->global_image);
-            }catch (\Exception $e){}
+            } catch (\Exception $e) {
+            }
 
             // Создадим новую картинку
             $imageName = time() . '_' . $request->global_image->getClientOriginalName();
@@ -132,8 +135,11 @@ class AdminController extends Controller
         $land = Land::find($id);
 
         try {
-            // Уничтожим картинку
-            unlink('land-images/' . $land->img_name);
+            try {
+                // Уничтожим картинку
+                unlink('land-images/' . $land->img_name);
+            } catch (\Exception $e) {
+            }
 
             // Уничтожим картинки слайдера
             $images = LandImages::where('lands_id', '=', $id)->get();

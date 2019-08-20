@@ -7,18 +7,15 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="stylesheet" href="admin-app/styles.066bffe65018a1bda765.css"></head>
 </head>
 <body>
 <app-root></app-root>
-<script src="admin-app/runtime-es2015.js" type="module"></script>
-<script src="admin-app/polyfills-es2015.js" type="module"></script>
-<script src="admin-app/vendor-es2015.js" type="module"></script>
-<script src="admin-app/main-es2015.js" type="module"></script>
-<script src="admin-app/styles-es2015.js" type="module"></script>
-<script src="admin-app/runtime-es5.js" nomodule defer></script>
-<script src="admin-app/polyfills-es5.js" nomodule defer></script>
-<script src="admin-app/styles-es5.js" nomodule defer></script>
-<script src="admin-app/vendor-es5.js" nomodule defer></script>
-<script src="admin-app/main-es5.js" nomodule defer></script>
+<script src="admin-app/runtime-es2015.10a1f01eef199006286d.js" type="module"></script>
+<script src="admin-app/polyfills-es2015.a57f2eec82f7de11db85.js" type="module"></script>
+<script src="admin-app/runtime-es5.9ad22a88fcc70a015907.js" nomodule defer></script>
+<script src="admin-app/polyfills-es5.d526d46d4d4f822ea980.js" nomodule defer></script>
+<script src="admin-app/main-es2015.057854def4bcadd68b57.js" type="module"></script>
+<script src="admin-app/main-es5.f2ead6f4f8438ccb8101.js" nomodule defer></script></body>
 </body>
 </html>

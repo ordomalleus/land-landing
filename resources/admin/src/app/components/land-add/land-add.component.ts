@@ -10,7 +10,7 @@ import { MatSnackBar } from '@angular/material';
 })
 export class LandAddComponent implements OnInit {
   // Какой wow эффект повешать
-  wowEffect = [{ id: 'bounceInLeft', title: 'С лева' }, { id: 'bounceInRight', title: 'С права' }];
+  wowEffect = [{ id: 'bounceInLeft', title: 'Слева' }, { id: 'bounceInRight', title: 'Справа' }];
   landType = [
     { id: 1, title: 'Земли сельскохозяйственного назначения' },
     { id: 2, title: 'Земли для садоводства' },

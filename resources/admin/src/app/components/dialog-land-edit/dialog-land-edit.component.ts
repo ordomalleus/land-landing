@@ -11,9 +11,9 @@ import { environment } from '../../../environments/environment';
   styleUrls: ['./dialog-land-edit.component.scss']
 })
 export class DialogLandEditComponent implements OnInit {
-  href = environment.production ? 'http://59land59.ru/' : 'http://localhost:8000/land-images/';
+  href = environment.production ? `${window.location.origin}/land-images/` : 'http://localhost:8000/land-images/';
   // Какой wow эффект повешать
-  wowEffect = [{ id: 'bounceInLeft', title: 'С лева' }, { id: 'bounceInRight', title: 'С права' }];
+  wowEffect = [{ id: 'bounceInLeft', title: 'Слева' }, { id: 'bounceInRight', title: 'Справа' }];
   landType = [
     { id: 1, title: 'Земли сельскохозяйственного назначения' },
     { id: 2, title: 'Земли для садоводства' },
