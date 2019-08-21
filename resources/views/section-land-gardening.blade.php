@@ -1,6 +1,6 @@
 <section id="land-gardening" class="app-land-gardening scrollspy">
     <div class="land-title" style="background-color: {{$globalSettings->color_block}}">
-        <span class="text">{{$landTypes[1]->title}}</span>
+        <span class="text">{!! $landTypes[1]->title !!}</span>
     </div>
 
     <div class="land-block">
