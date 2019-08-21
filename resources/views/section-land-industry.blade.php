@@ -1,7 +1,7 @@
 <section id="land-industry" class="app-land-industry scrollspy">
 
     <div class="land-title" style="background-color: {{$globalSettings->color_block}}">
-        <span class="text">Земли промышленности</span>
+        <span class="text">{{$landTypes[0]->title}}</span>
     </div>
 
     <div class="land-block">

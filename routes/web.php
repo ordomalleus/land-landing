@@ -31,6 +31,9 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function (){
     // Изменить глобальные настройки
     Route::post('/settings/edit', 'Admin\AdminController@settingsEdit');
 
+    // Получить все типы земли
+    Route::get('/land-type/get-all', 'Admin\AdminController@landTypeGetAll');
+
     // Получить все земли
     Route::get('/land/get-all', 'Admin\AdminController@landGetAll');
 

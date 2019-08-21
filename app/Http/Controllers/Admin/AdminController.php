@@ -6,6 +6,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Model\Land;
 use App\Model\LandImages;
+use App\Model\LandType;
 use App\Model\Settings;
 use Illuminate\Http\Request;
 
@@ -42,7 +43,7 @@ class AdminController extends Controller
      */
     public function settingsEdit(Request $request)
     {
-        $formInput = $request->except(['global_image']);
+        $formInput = $request->except(['global_image', 'type_id_0', 'type_id_1', 'type_id_2']);
         $settings = Settings::find(1);
 
         if ($request->global_image && $request->global_image != null) {
@@ -61,7 +62,28 @@ class AdminController extends Controller
 
         $settings->update($formInput);
 
+        //=============Обновляем точечно тайтлы типов земли==================
+        $landType0 = LandType::find(1);
+        $landType0->title = $request->type_id_0;
+        $landType0->save();
+
+        $landType1 = LandType::find(2);
+        $landType1->title = $request->type_id_1;
+        $landType1->save();
+
+        $landType2 = LandType::find(3);
+        $landType2->title = $request->type_id_2;
+        $landType2->save();
+        //===================================================================
+
         return response()->json('ok');
+    }
+
+    public function landTypeGetAll()
+    {
+        $landTypes = LandType::all();
+
+        return response()->json($landTypes);
     }
 
     public function landGetAll()

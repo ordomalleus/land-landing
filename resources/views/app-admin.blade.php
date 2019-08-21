@@ -15,7 +15,7 @@
 <script src="admin-app/polyfills-es2015.a57f2eec82f7de11db85.js" type="module"></script>
 <script src="admin-app/runtime-es5.9ad22a88fcc70a015907.js" nomodule defer></script>
 <script src="admin-app/polyfills-es5.d526d46d4d4f822ea980.js" nomodule defer></script>
-<script src="admin-app/main-es2015.057854def4bcadd68b57.js" type="module"></script>
-<script src="admin-app/main-es5.f2ead6f4f8438ccb8101.js" nomodule defer></script></body>
+<script src="admin-app/main-es2015.4bed7f8643502fe7ea4b.js" type="module"></script>
+<script src="admin-app/main-es5.2a07c399ce24db9c3d6c.js" nomodule defer></script></body>
 </body>
 </html>

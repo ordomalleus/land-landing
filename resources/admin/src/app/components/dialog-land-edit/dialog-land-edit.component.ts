@@ -4,6 +4,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material';
 
 import { environment } from '../../../environments/environment';
+import { map, switchMap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-dialog-land-edit',
@@ -14,11 +15,12 @@ export class DialogLandEditComponent implements OnInit {
   href = environment.production ? `${window.location.origin}/land-images/` : 'http://localhost:8000/land-images/';
   // Какой wow эффект повешать
   wowEffect = [{ id: 'bounceInLeft', title: 'Слева' }, { id: 'bounceInRight', title: 'Справа' }];
-  landType = [
-    { id: 1, title: 'Земли сельскохозяйственного назначения' },
-    { id: 2, title: 'Земли для садоводства' },
-    { id: 3, title: 'Земли сельскохозяйственного назначения' }
-  ];
+  landType: any[];
+  // landType = [
+  //   { id: 1, title: 'Земли промышленности' },
+  //   { id: 2, title: 'Земли для садоводства' },
+  //   { id: 3, title: 'Земли сельскохозяйственного назначения' }
+  // ];
 
   // Форма
   form = new FormGroup({
@@ -50,6 +52,11 @@ export class DialogLandEditComponent implements OnInit {
     // Получим токен текущей сессии
     this.httpClient.get('/admin/csrf').subscribe((data: string) => {
       this.crsf = data;
+    });
+
+    // Получим тип земель
+    this.httpClient.get('/admin/land-type/get-all').subscribe((data: any[]) => {
+      this.landType = data;
     });
 
     this.getOneLand();

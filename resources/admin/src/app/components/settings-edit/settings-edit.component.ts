@@ -15,11 +15,15 @@ export class SettingsEditComponent implements OnInit {
     title_second: new FormControl('', [Validators.required]),
     global_image: new FormControl('', []),
     color_block: new FormControl('', [Validators.required]),
+    type_id_0: new FormControl('', [Validators.required]),
+    type_id_1: new FormControl('', [Validators.required]),
+    type_id_2: new FormControl('', [Validators.required]),
   });
 
   crsf = '';
   globalSettings: any;
   color;
+  landType: any[];
 
   constructor(private httpClient: HttpClient,
               private snackBar: MatSnackBar) {
@@ -29,6 +33,14 @@ export class SettingsEditComponent implements OnInit {
     // Получим токен текущей сессии
     this.httpClient.get('/admin/csrf').subscribe((data: string) => {
       this.crsf = data;
+    });
+
+    // Получим тип земель
+    this.httpClient.get('/admin/land-type/get-all').subscribe((data: any[]) => {
+      this.landType = data;
+      this.form.get('type_id_0').patchValue(data[0].title);
+      this.form.get('type_id_1').patchValue(data[1].title);
+      this.form.get('type_id_2').patchValue(data[2].title);
     });
 
     this.getGlobalSettings();

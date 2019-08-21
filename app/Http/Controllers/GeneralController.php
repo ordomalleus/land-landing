@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Model\Land;
+use App\Model\LandType;
 use App\Model\Settings;
 use Hamcrest\Core\Set;
 
@@ -28,7 +29,10 @@ class GeneralController extends Controller
         // Получи главные настройки
         $globalSettings = Settings::find(1);
 
-        return view('general', compact(['industrys', 'gardenings', 'agriculturals', 'globalSettings']));
+        // Получим типы земель
+        $landTypes = LandType::all();
+
+        return view('general', compact(['industrys', 'gardenings', 'agriculturals', 'globalSettings', 'landTypes']));
     }
 
     public function oneLand($id)

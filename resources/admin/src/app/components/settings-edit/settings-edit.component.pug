@@ -13,6 +13,21 @@
           placeholder="Главная страница, второй блок",
           formControlName="title_second")
 
+      mat-form-field
+        input(matInput,
+          placeholder="Название первого блока земли",
+          formControlName="type_id_0")
+
+      mat-form-field
+        input(matInput,
+          placeholder="Название второго блока земли",
+          formControlName="type_id_1")
+
+      mat-form-field
+        input(matInput,
+          placeholder="Название третьего блока земли",
+          formControlName="type_id_2")
+
       .color-picker-container
         p Цвет блоков земли
         .color-span([colorPicker]="color", (colorPickerChange)="serColor($event)", [style.background]="color")

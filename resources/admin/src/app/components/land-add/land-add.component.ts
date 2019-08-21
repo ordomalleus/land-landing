@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { MatSnackBar } from '@angular/material';
+import { map, switchMap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-land-add',
@@ -11,11 +12,13 @@ import { MatSnackBar } from '@angular/material';
 export class LandAddComponent implements OnInit {
   // Какой wow эффект повешать
   wowEffect = [{ id: 'bounceInLeft', title: 'Слева' }, { id: 'bounceInRight', title: 'Справа' }];
-  landType = [
-    { id: 1, title: 'Земли сельскохозяйственного назначения' },
-    { id: 2, title: 'Земли для садоводства' },
-    { id: 3, title: 'Земли сельскохозяйственного назначения' }
-  ];
+  landType: any[];
+
+  // landType = [
+  //   { id: 1, title: 'Земли промышленности' },
+  //   { id: 2, title: 'Земли для садоводства' },
+  //   { id: 3, title: 'Земли сельскохозяйственного назначения' }
+  // ];
 
   // Форма
   form = new FormGroup({
@@ -46,6 +49,11 @@ export class LandAddComponent implements OnInit {
     // Получим токен текущей сессии
     this.httpClient.get('/admin/csrf').subscribe((data: string) => {
       this.crsf = data;
+    });
+
+    // Получим тип земель
+    this.httpClient.get('/admin/land-type/get-all').subscribe((data: any[]) => {
+      this.landType = data;
     });
 
     // Прочекаем контролы

@@ -1,6 +1,6 @@
 <section id="land-agricultural" class="app-land-agricultural scrollspy">
     <div class="land-title" style="background-color: {{$globalSettings->color_block}}">
-        <span class="text">Земли сельскохозяйственного назначения</span>
+        <span class="text">{{$landTypes[2]->title}}</span>
     </div>
 
     <div class="land-block">
